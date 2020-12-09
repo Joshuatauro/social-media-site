@@ -1,0 +1,17 @@
+.home {
+  background-color: #151618;
+}
+
+.home.light {
+  background-color: #e2d7d7;
+}
+
+.home__container {
+  width: 90%;
+  margin: auto;
+}
+
+.home-post {
+  width: 70%;
+  padding: 20px 0;
+}

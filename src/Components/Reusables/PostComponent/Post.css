@@ -1,0 +1,66 @@
+.post {
+  width: 100%;
+  background-color: #242629;
+  color: #ffffff;
+  font-family: "Jetbrains Mono";
+  transition: 0.5s ease-in-out;
+  padding: 15px;
+}
+
+.post.light {
+  background-color: #ffffff;
+  color: black;
+}
+
+.post__container {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  margin: auto;
+}
+
+.post__container__post-user-details {
+  display: flex;
+  align-items: center;
+}
+
+.post__container__post-user-details__avatar {
+  margin: 5px 10px 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.post__container__post-user-details__avatar img {
+  object-fit: contain;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.post__container__post-user-details__col__username h6 {
+  font-weight: 300;
+  color: #e7e7e7;
+}
+
+.post__container__post-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.post__container__post-details__heading {
+  margin: 10px 0;
+}
+
+.post__container__post-details__heading-heading {
+  font-size: 28px;
+}
+
+.post__container__post-details__para {
+  margin: 0 0 10px;
+}
+
+.post__container__post-details__para-para {
+  font-family: "Nunito";
+  font-weight: 300;
+  font-size: 15px;
+}

@@ -1,0 +1,20 @@
+@import '../config';
+
+.home{
+  background-color: $darkThemeBackground;
+
+  &.light{
+    background-color: $lightThemeBackground;
+  }
+
+  &__container{
+    width: 90%;
+    margin: auto;
+  }
+}
+
+
+.home-post{
+  width: 70%;
+  padding: 20px 0;
+}

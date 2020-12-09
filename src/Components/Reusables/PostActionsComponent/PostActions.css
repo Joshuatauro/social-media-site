@@ -1,0 +1,47 @@
+.post-actions {
+  width: 100%;
+  background-color: #242629;
+  color: #ffffff;
+  margin: 5px 0 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.post-actions.light {
+  background-color: #ffffff;
+}
+
+.post-actions.light .post-actions__container-col__comments h4 {
+  color: black;
+  font-weight: 700;
+}
+
+.post-actions__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-actions__container-col {
+  display: flex;
+  align-items: center;
+}
+
+.post-actions__container-col__vote {
+  background-color: #151618;
+  color: #e7e7e7;
+  padding: 5px 15px;
+  margin: 0 5px 0 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post-actions__container-col__vote i {
+  margin: 0 5px 0 0;
+}
+
+.post-actions__container-col__comments h4 {
+  font-size: 15px;
+  color: #e7e7e7;
+  font-weight: 300;
+}

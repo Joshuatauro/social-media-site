@@ -1,0 +1,54 @@
+@import "../../config";
+
+.post-actions{
+  width: 100%;
+
+  background-color: $darkTheme;
+  color: $darkThemeText;
+  margin: 5px 0 10px;
+
+  transition: 0.5s ease-in-out;
+
+  &.light{
+    background-color: $lightTheme;
+    
+    & .post-actions__container-col__comments h4{
+      color: $lightThemeText;
+      font-weight: $fontWeightHeavy;
+    }
+  }
+
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-col{
+      display: flex;
+      align-items: center;
+
+      &__vote{
+        background-color: $darkThemeBackground;
+        color: $darkThemeTextFade;
+
+        padding: 5px 15px;
+        margin:  0 5px 0 0;
+
+        display: flex;
+        align-items: center;
+        
+        cursor: pointer;
+
+        & i{
+          margin: 0 5px 0 0;
+        }
+      }
+
+      &__comments h4{
+        font-size: $fontSizeSmall;
+        color: $darkThemeTextFade;
+        font-weight: $fontWeightLight;
+      }
+    }
+  }
+}
