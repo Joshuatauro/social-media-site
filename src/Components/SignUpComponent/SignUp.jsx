@@ -1,24 +1,29 @@
 import React, { useState,useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { ThemeContext } from '../Context/GeneralContext'
 import { AuthContext } from "../Context/AuthContext"
 import "./SignUp.css"
 
 const SignUp = () => {
+  const history = useHistory()
   const { darkTheme } = useContext(ThemeContext)
   const {signUp} = useContext(AuthContext)
 
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [rePassword,setRePassword] = useState('')
+  const [displayName,setDisplayName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     if (password === rePassword){
-      signUp(email,password)
+      signUp(email,password,displayName)
+        // .then(history.push("/"))
       setEmail('')
       setPassword('')
       setRePassword('')
+      setDisplayName('')
     } else {
       alert("Passwords do not match")
     }
@@ -41,6 +46,11 @@ const SignUp = () => {
           <div className="sign-up__container__form__input">
             <input type="text" required value={rePassword} onChange={ (e) => setRePassword(e.target.value) }/>
             <label className="sign-up__container__form__input-label">Password</label>
+          </div>
+
+          <div className="sign-up__container__form__input">
+            <input type="text" required value={displayName} onChange={ (e) => setDisplayName(e.target.value) }/>
+            <label className="sign-up__container__form__input-label">Username</label>
           </div>
 
           <button className="sign-up__container__form__btn">

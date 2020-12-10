@@ -6,10 +6,8 @@ import PostActions from '../PostActionsComponent/PostActions'
 import './Post.css'
 
 const Post = (props) => {
-  const { userName,name,title,para,imageURL} = props.props
-  console.log(userName)
+  const { displayName,title,para,imageURL} = props.props
   const { darkTheme } = useContext(ThemeContext)
-
 
   return (
     <section className={`post ${darkTheme ? "" : "light"}`}>
@@ -22,11 +20,8 @@ const Post = (props) => {
         
           <div className="post__container__post-user-details__col">
 
-            <div className="post__container__post-user-details__col__name">
-              <h4>{name}</h4>
-            </div>
             <div className="post__container__post-user-details__col__username">
-              <h6>TDPu/{userName}</h6>
+              <h6>TDPu/{displayName}</h6>
             </div>
 
           </div>

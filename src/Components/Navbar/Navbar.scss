@@ -43,7 +43,10 @@
     &__header{
       font-weight: $fontWeightHeavy;
       font-size: $fontSizeMedium;
-      color: $darkThemeText;
+
+      background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       
       transition: 0.5s ease-in-out;
   

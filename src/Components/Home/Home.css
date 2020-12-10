@@ -1,5 +1,6 @@
 .home {
   background-color: #151618;
+  min-height: calc(100vh - 80px);
 }
 
 .home.light {

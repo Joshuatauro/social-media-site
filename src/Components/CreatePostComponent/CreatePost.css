@@ -1,0 +1,106 @@
+.create-post {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #151618;
+  color: #ffffff;
+  transition: 0.5s ease-in-out;
+}
+
+.create-post.light {
+  background-color: #e2d7d7;
+  color: black;
+}
+
+.create-post__container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-post__container__form {
+  width: fit-content;
+  background: #242629;
+  padding: 70px 80px;
+}
+
+.create-post__container__form__input {
+  position: relative;
+  display: flex;
+}
+
+.create-post__container__form__input input {
+  width: 500px;
+  height: 40px;
+  padding: 0 10px;
+  margin: 0 0 25px 0;
+  font-family: "Jetbrains Mono";
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 13px;
+  background: #242629;
+  border: 1.5px solid white;
+}
+
+.create-post__container__form__input input:focus ~ label,
+.create-post__container__form__input input:valid ~ label {
+  top: -18px;
+  color: #ffffff;
+}
+
+.create-post__container__form__input textarea {
+  width: 500px;
+  height: 200px;
+  resize: none;
+  padding: 5px 10px;
+  font-family: "Jetbrains Mono";
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 13px;
+  background: #242629;
+  border: 1.5px solid white;
+}
+
+.create-post__container__form__input textarea:focus ~ label,
+.create-post__container__form__input textarea:valid ~ label {
+  top: -18px;
+  color: #ffffff;
+}
+
+.create-post__container__form__input__label {
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  padding: 0px;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: "Jetbrains Mono";
+  transition: 0.5s ease-in-out;
+}
+
+.create-post__container__form__btn__platform {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.create-post__container__form__btn {
+  padding: 10px 25px;
+  font-family: "Jetbrains Mono";
+  color: white;
+  background: linear-gradient(45deg, #18e976, #2a3bd8);
+}
+
+.create-post__container__form__options {
+  background: linear-gradient(45deg, #18e976, #2a3bd8);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.create-post__container__form__options option {
+  background: linear-gradient(45deg, #18e976, #2a3bd8);
+  color: black;
+}

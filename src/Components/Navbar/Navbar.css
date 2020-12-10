@@ -35,7 +35,9 @@
 .navbar__container__header {
   font-weight: 700;
   font-size: 22px;
-  color: #ffffff;
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transition: 0.5s ease-in-out;
 }
 

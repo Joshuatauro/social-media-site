@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${darkTheme ? "" : "light" }`} onResize={checker}>
       <div className="navbar__container">
-          <Link className="navbar__container__header">
+          <Link className="navbar__container__header" to="/">
             {logo ? "TheDevPlatform" : "TDP"}
           </Link>
 

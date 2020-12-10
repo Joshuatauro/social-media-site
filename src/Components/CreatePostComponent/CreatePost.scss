@@ -1,0 +1,133 @@
+@import "../config";
+
+.create-post{
+  width: 100%;
+  height: calc(100vh - 80px);
+
+  background-color: $darkThemeBackground;
+  color: $darkThemeText;  
+
+  transition: 0.5s ease-in-out;
+
+  &.light{
+    background-color: $lightThemeBackground;
+    color: $lightThemeText;
+  }
+
+  &__container{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &__form{
+      width: fit-content;
+      background: $darkTheme;
+
+      padding: 70px 80px;
+
+      &__input{
+        position: relative;
+
+        display: flex;
+
+        & input{
+          width: 500px;
+          height: 40px;
+
+          padding: 0 10px;
+
+          margin: 0 0 25px 0;
+
+          font-family: $fontMain;
+          font-weight: $fontWeightHeavy;
+          color: $darkThemeText;
+          font-size: 13px;
+
+          background: $darkTheme;
+          border: 1.5px solid white;
+
+          &:focus ~ label,
+          &:valid ~ label{
+            top: -18px;
+
+            color: $darkThemeText;
+          }
+        }
+
+        & textarea{
+          width: 500px;
+          height: 200px;
+
+          resize: none;
+
+          padding: 5px 10px;
+
+          font-family: $fontMain;
+          font-weight: $fontWeightHeavy;
+          color: $darkThemeText;
+          font-size: 13px;
+
+          background: $darkTheme;
+
+          border: 1.5px solid white;
+          
+          &:focus ~ label,
+          &:valid ~ label{
+            top: -18px;
+
+            color: $darkThemeText;
+          } 
+        }
+
+        &__label{
+          position: absolute;
+          left: 5px;
+          top: 12px;
+
+          padding: 0px;
+          border-radius: 0;
+
+          color: $darkThemeText;
+          font-size: 13px;
+          font-family: $fontMain;
+
+          transition: 0.5s ease-in-out;
+        }
+      }
+
+      &__btn__platform{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+
+      &__btn{
+        padding: 10px 25px;
+        
+        font-family: $fontMain;
+        color: white;
+
+        background: linear-gradient(45deg, #18e976, #2a3bd8);
+      }
+
+      &__options{
+        background: linear-gradient(45deg, #18e976, #2a3bd8);
+        color: $darkThemeText;
+
+        cursor: pointer;
+
+        & option{
+        background: linear-gradient(45deg, #18e976, #2a3bd8);
+        color: black;
+        }
+      }
+    }
+  }
+
+  
+}
