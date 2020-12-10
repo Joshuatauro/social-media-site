@@ -43,6 +43,9 @@
       }
 
       &__col{
+        &__platform h5{
+          color: $darkThemeText;
+        }
 
         &__username h6{
           font-weight: $fontWeightLight;
@@ -62,11 +65,13 @@
 
         &-heading{
           font-size: $fontSizeLarge;
+          color: $darkThemeText;
         }
       }
 
       &__para{
-        margin: 0 0 10px;
+        max-height: 120px;
+        overflow: hidden;
 
         &-para{
           font-family: $fontSecondary;

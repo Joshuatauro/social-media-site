@@ -4,6 +4,9 @@
   color: #ffffff;
   margin: 5px 0 10px;
   transition: 0.5s ease-in-out;
+  box-shadow: -2px -8px 15px 3px #242629;
+  position: relative;
+  z-index: 99999;
 }
 
 .post-actions.light {

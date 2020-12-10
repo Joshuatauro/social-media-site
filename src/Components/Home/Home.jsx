@@ -11,6 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     db.collection('posts').onSnapshot(snapshot => {
+      
       setPostsArr(snapshot.docs.map( 
         doc => 
         (
@@ -27,10 +28,11 @@ const Home = () => {
   return (
     <section className={`home ${darkTheme ? "" : "light"}`}>
       <div className="home__container">
-        {postsArr.map(({post,id}) => {
+        {postsArr.map((props) => {
+          const ID = props.id
           return(
             <div className="home-post">
-              <Post key={id} id={id} props={post}/>
+              <Post key={ID} props={props}/>
             </div>
           )
         })}

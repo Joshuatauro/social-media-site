@@ -19,7 +19,7 @@ const SignUp = () => {
 
     if (password === rePassword){
       signUp(email,password,displayName)
-        // .then(history.push("/"))
+        .then(history.push("/"))
       setEmail('')
       setPassword('')
       setRePassword('')

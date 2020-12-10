@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar/Navbar'
 import SignUp from './Components/SignUpComponent/SignUp'
 import Login from "./Components/LogInComponent/Login"
 import CreatePost from './Components/CreatePostComponent/CreatePost';
+import SinglePost from './Components/SinglePost/SinglePost';
 
 function App() {
   return (
@@ -15,12 +16,19 @@ function App() {
           <Route exact path="/signup">
             <SignUp />
           </Route>
+
           <Route exact path="/login">
             <Login />
           </Route>
+
           <Route path="/create-post">
             <CreatePost />
           </Route>
+
+          <Route path="/post/:postID">
+            <SinglePost />
+          </Route>
+
           <Route exact path="/">
             <Home />
           </Route>
