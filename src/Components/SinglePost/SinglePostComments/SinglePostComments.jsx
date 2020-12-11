@@ -7,7 +7,6 @@ const SinglePostComments = ({postID}) => {
 
   useEffect(() => {
     db.collection('comments').where("parentID", "==", postID).onSnapshot(snapshot => {
-      console.log(snapshot.docs[0].data())
       setComments(snapshot.docs.map( 
         doc => 
         (

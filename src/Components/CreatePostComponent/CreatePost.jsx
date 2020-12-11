@@ -20,34 +20,35 @@ const CreatePost = () => {
 
   const handlePostSubmit = e => {
     e.preventDefault()
-    addPost()
-    
-    console.log(currentUser)
+    db.collection('users').get()
+      .then((
+        res => {
+
+          res.docs.map((doc) => {
+            if(doc.id == currentUser.uid){
+              setDisplayName(doc.data().displayName)
+              return true
+            }
+          })
+        }
+      )).then(() => addPost())
   }
 
-  const addPost = async() => {
-    db.collection('users').doc(currentUser.uid).get().then((cred) => cred.data().displayName)
-    .then((displayName) => setDisplayName(displayName))
-    .then(submitPost())
-  }
-
-  const submitPost = () => {
+  const addPost = () => {
     db.collection('posts').add(
       {
-        title: title,
+        displayName,
+        title,
         para: text,
-        displayName: displayName,
-        subPlatform: platform,
-        commentCount: 0
+        subPlatform: platform
       }
-    ).then(
-      (docRef) => {
-        
-        history.push(`/post/${docRef.id}`)
-      }
-    )
+    ).then(docRef => {
+      console.log(docRef.id)
+      history.push(`/post/${docRef.id}`)
+    })
   }
 
+  
   return (
     <section className={`create-post ${darkTheme ? "" : "light"}`}>
       <div className="create-post__container">
@@ -62,7 +63,7 @@ const CreatePost = () => {
           </div>
 
           <div className="create-post__container__form__btn__platform">
-            <button className="create-post__container__form__btn" onClick={handlePostSubmit}>
+            <button className="create-post__container__form__btn" type="submit">
               Submit
             </button>
 

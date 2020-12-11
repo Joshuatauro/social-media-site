@@ -18,8 +18,6 @@ export const AuthProvider = ({children}) => {
       })
     })
     .catch(err => console.error(err))
-
-
   }
 
   const logIn = async(email,password) => {

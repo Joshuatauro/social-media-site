@@ -50,8 +50,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="navbar__container__links-item">
-                <Link to="/home">
-                  <i className="fas fa-home"/>
+                <Link to="/create-post">
+                  <i className="fas fa-plus"/>
                 </Link>
               </li>
             </>
