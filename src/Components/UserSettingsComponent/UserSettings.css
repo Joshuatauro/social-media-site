@@ -1,1 +1,24 @@
-/* No CSS */
+.user-settings {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #151618;
+}
+
+.user-settings__container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-settings__container__posts {
+  width: 70%;
+}
+
+.user-settings__container__posts-post {
+  margin: 20px 0;
+}
+
+.user-settings__container__profile {
+  margin: 20px 0 0;
+}

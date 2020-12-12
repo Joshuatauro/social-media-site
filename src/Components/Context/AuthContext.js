@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) => {
 
   const logIn = async(email,password) => {
     await auth.signInWithEmailAndPassword(email,password)
-    .catch(err => console.error(err))
+    .catch(err => alert(err.message))
   }
 
   useEffect(() => {

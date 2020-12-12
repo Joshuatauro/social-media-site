@@ -25,14 +25,14 @@ const PostActions = ({comments}) => {
         <div className="post-actions__container-col">
 
           <button className="post-actions__container-col__vote" onClick={upvote}>
-            <i className="fas fa-caret-up fa-2x" />
+            <i className="fas fa-heart" />
             {upvotes}
           </button>
 
-          <button className="post-actions__container-col__vote" onClick={downvote}>
+          {/* <button className="post-actions__container-col__vote" onClick={downvote}>
             <i className="fas fa-caret-down fa-2x" />
             {downvotes}
-          </button>
+          </button> */}
 
         </div>
 

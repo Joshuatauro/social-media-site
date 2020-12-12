@@ -4,6 +4,8 @@ import { AuthContext } from "../Context/AuthContext"
 import { ThemeContext } from "../Context/GeneralContext"
 import { db } from '../Firebase/firebase'
 
+import firebase from 'firebase'
+
 import "./CreatePost.css"
 
 const CreatePost = () => {
@@ -14,42 +16,49 @@ const CreatePost = () => {
   const [displayName, setDisplayName] = useState('')
   const [platform, setPlatform] = useState('All')
 
+  const [loading, isLoading] = useState(false)
+
 
   const { currentUser } = useContext(AuthContext)
   const { darkTheme } = useContext(ThemeContext)
 
   const handlePostSubmit = e => {
     e.preventDefault()
-    db.collection('users').get()
-      .then((
-        res => {
+    if(currentUser){
 
-          res.docs.map((doc) => {
-            if(doc.id === currentUser.uid){
-              console.log("FOUND",doc.data().displayName)
-              // setDisplayName(doc.data().displayName)
-              addPost(doc.data().displayName)
-              
-            }
-          })
-        }
-      ))
+      db.collection('users').get()
+        .then((
+          res => {
+  
+            res.docs.map((doc) => {
+              if(doc.id === currentUser.uid){
+                
+                addPost(doc.data().displayName)
+                
+              }
+            })
+          }
+        ))
+    } else {
+      alert("You need to create on account to post")
+    }
   }
 
   const addPost = (userName) => {
-    console.log(userName, "you got the fucking username bitch then fucking show it ")
+    isLoading(true)
     db.collection('posts').add(
       {
         displayName: userName,
         title,
         para: text,
-        subPlatform: platform
+        subPlatform: platform,
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp()
       }
     ).then(docRef => {
       console.log(docRef.id)
       history.push(`/post/${docRef.id}`)
     })
-    console.log("POSTED")
+    
   }
 
   

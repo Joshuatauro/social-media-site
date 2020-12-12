@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthContext'
 import { ThemeContext } from '../../Context/GeneralContext'
 
 import { db } from '../../Firebase/firebase'
+import LoadingIcon from '../../Reusables/LoadingIcon/LoadingIcon'
 import SinglePostComments from '../SinglePostComments/SinglePostComments'
 import SinglePostInput from '../SinglePostInputComment/SinglePostInput'
 
@@ -22,9 +23,10 @@ const SinglePostMain = () => {
   const [imageURL, setImageURL] = useState('')
   const [subPlatform, setSubPlatform] = useState('')
 
-  
+  const [loading, isLoading] = useState(true)
 
   const fetchData = () => {
+    
     db.collection('posts').get()
       .then(res => {
         res.docs.map((doc) => {
@@ -38,15 +40,16 @@ const SinglePostMain = () => {
             setTitle(posts[0].title)
             setDisplayName(posts[0].displayName)
             setSubPlatform(posts[0].subPlatform)
-            
+            isLoading(false)
           }
         })
       })
-
+    
   }
 
   // FOR GETTING THE DETAILS OF THE POST
   useEffect(() => {
+    isLoading(true)
     fetchData()
     
     return fetchData
@@ -55,7 +58,10 @@ const SinglePostMain = () => {
 
   return (
     <section className={`single-post ${darkTheme ? "" : "light"}`}>
-      <div className="post__container single-post__container">
+      {loading ? (
+        <LoadingIcon />
+      ) : (
+        <div className="post__container single-post__container">
 
         <div className="single-post__container__post-user-details">
           <div className="single-post__container__post-user-details__avatar">
@@ -104,6 +110,8 @@ const SinglePostMain = () => {
 
         <SinglePostComments postID={postID}/>
       </div>
+      )}
+      
     </section>
   )
 }

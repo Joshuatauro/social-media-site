@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import firebase from 'firebase'
 import { db } from '../../Firebase/firebase'
-
 import './SinglePostInput.css'
+import { AuthContext } from '../../Context/AuthContext'
 
 const SinglePostInput = ({postID, userName}) => {
-
+  const { currentUser } = useContext(AuthContext)
   const [text,setText] = useState()
 
   const handleSubmit = e => {
     e.preventDefault()
-    submitPost()
+    if(currentUser){
+
+      submitPost()
+    } else {
+      alert("You need to login to add a comment")
+    }
   }
 
   const submitPost = () => {

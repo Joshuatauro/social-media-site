@@ -7,6 +7,7 @@ import Login from "./Components/LogInComponent/Login"
 import CreatePost from './Components/CreatePostComponent/CreatePost';
 import SinglePost from './Components/SinglePost/SinglePost';
 import PlatformHome from './Components/PlatformHome/PlatformHome';
+import UserSettings from './Components/UserSettingsComponent/UserSettings';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
 
           <Route path="/platform/:subPlatform">
             <PlatformHome />
+          </Route>
+
+          <Route path="/dev/:userName">
+            <UserSettings />
           </Route>
 
           <Route exact path="/">

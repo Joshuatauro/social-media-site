@@ -33,7 +33,9 @@ const Post = ({props}) => {
             </div>
 
             <div className="post__container__post-user-details__col__username">
-              <h6>By u/{displayName}</h6>
+              <Link to={`/dev/${displayName}`}>
+                <h6>By u/{displayName}</h6>
+              </Link>
             </div>
 
           </div>
@@ -57,7 +59,7 @@ const Post = ({props}) => {
 
         </div>
         <PostActions 
-          comments = {commentCount}
+          comments = {commentCount ? commentCount : 0}
         />
 
       </div>
