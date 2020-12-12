@@ -1,0 +1,15 @@
+.single-post-comments__container-header h2 {
+  color: #e7e7e7;
+  position: relative;
+  margin: 0 0 40px;
+}
+
+.single-post-comments__container-header h2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+}

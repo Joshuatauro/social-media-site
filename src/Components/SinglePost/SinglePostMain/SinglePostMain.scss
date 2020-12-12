@@ -1,0 +1,78 @@
+@import '../../config';
+
+.single-post{
+  width: 90%;
+  margin: auto;
+
+  background-color: $darkTheme;
+  color: $darkThemeText;
+  font-family: $fontMain;
+
+  // line-height: 1.5;
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+
+    padding: 40px 20px;
+
+    // margin: 40px 0 0;
+
+    &__post-user-details{
+      display: flex;
+      align-items: center;
+
+      &__avatar{
+        margin: 5px 10px 5px 0;
+
+        display: flex;
+        align-items: center;
+        & img{
+          object-fit: contain;
+          width: 30px;
+          height: 30px;
+
+          border-radius: 50%;
+        }
+      }
+
+      &__col{
+        &__platform h5{
+          color: $darkThemeText;
+        }
+
+        &__username h6{
+          font-weight: $fontWeightLight;
+          color: $darkThemeTextFade;
+        }
+      }
+    }
+
+    &__post-details{
+      display: flex;
+      flex-direction: column;
+
+      
+
+      &__heading{
+        margin: 10px 0;
+
+        &-heading{
+          font-size: $fontSizeLarge;
+          color: $darkThemeText;
+        }
+      }
+
+      &__para{
+        
+        &-para{
+          font-family: $fontSecondary;
+          font-weight: $fontWeightLight;
+          font-size: $fontSizeSmall;
+        }
+      }
+    }
+  }
+}

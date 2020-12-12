@@ -1,0 +1,57 @@
+@import '../../config';
+
+.single-post-input{
+  width: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  margin: 70px 0 30px;
+
+  &__text{
+    height: 180px;
+    resize: none;
+
+    background: transparent;
+    color: $darkThemeText;
+
+    border: 1.8px solid white;
+
+    padding: 10px;
+
+    &:focus ~ label,
+    &:valid ~ label{
+      top: -25px;
+
+      color: $darkThemeText;
+    }
+  }
+
+  &__label{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+
+    transition: 0.5s ease-in-out;
+
+  }
+
+  &__btn{
+
+    &-btn{
+      width: 150px;
+      height: 40px;
+
+      margin: 20px 0;
+
+      background: linear-gradient(45deg, #18e976, #2a3bd8);
+      color: white;
+
+      font-family: $fontMain;
+
+      cursor: pointer;
+    }
+  }
+
+}

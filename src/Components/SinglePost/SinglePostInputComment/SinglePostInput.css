@@ -1,0 +1,39 @@
+.single-post-input {
+  width: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 70px 0 30px;
+}
+
+.single-post-input__text {
+  height: 180px;
+  resize: none;
+  background: transparent;
+  color: #ffffff;
+  border: 1.8px solid white;
+  padding: 10px;
+}
+
+.single-post-input__text:focus ~ label,
+.single-post-input__text:valid ~ label {
+  top: -25px;
+  color: #ffffff;
+}
+
+.single-post-input__label {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.single-post-input__btn-btn {
+  width: 150px;
+  height: 40px;
+  margin: 20px 0;
+  background: linear-gradient(45deg, #18e976, #2a3bd8);
+  color: white;
+  font-family: "Jetbrains Mono";
+  cursor: pointer;
+}

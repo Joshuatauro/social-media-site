@@ -1,0 +1,61 @@
+.single-post {
+  width: 90%;
+  margin: auto;
+  background-color: #242629;
+  color: #ffffff;
+  font-family: "Jetbrains Mono";
+}
+
+.single-post__container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 40px 20px;
+}
+
+.single-post__container__post-user-details {
+  display: flex;
+  align-items: center;
+}
+
+.single-post__container__post-user-details__avatar {
+  margin: 5px 10px 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.single-post__container__post-user-details__avatar img {
+  object-fit: contain;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.single-post__container__post-user-details__col__platform h5 {
+  color: #ffffff;
+}
+
+.single-post__container__post-user-details__col__username h6 {
+  font-weight: 300;
+  color: #e7e7e7;
+}
+
+.single-post__container__post-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-post__container__post-details__heading {
+  margin: 10px 0;
+}
+
+.single-post__container__post-details__heading-heading {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.single-post__container__post-details__para-para {
+  font-family: "Nunito";
+  font-weight: 300;
+  font-size: 15px;
+}

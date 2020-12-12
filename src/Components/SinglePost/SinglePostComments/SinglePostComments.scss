@@ -1,0 +1,27 @@
+@import '../../config';
+
+.single-post-comments{
+
+  &__container{
+
+    &-header h2{
+      color: $darkThemeTextFade;
+
+      position: relative;
+      
+      margin: 0 0 40px;
+
+      &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 30px;
+
+        width: 100%;
+        height: 2px;
+
+        background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+      }
+    }
+  }
+}

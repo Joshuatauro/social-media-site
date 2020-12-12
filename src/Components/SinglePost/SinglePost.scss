@@ -1,0 +1,10 @@
+@import "../config";
+
+.single-post-page{
+  background-color: $darkThemeBackground;
+  min-height: calc(100vh - 80px);
+
+  &__container{
+    padding: 40px 0 0;
+  }
+}

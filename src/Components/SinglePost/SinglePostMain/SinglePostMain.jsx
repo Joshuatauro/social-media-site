@@ -4,16 +4,16 @@ import { AuthContext } from '../../Context/AuthContext'
 import { ThemeContext } from '../../Context/GeneralContext'
 
 import { db } from '../../Firebase/firebase'
+import SinglePostComments from '../SinglePostComments/SinglePostComments'
+import SinglePostInput from '../SinglePostInputComment/SinglePostInput'
 
-
+import './SinglePostMain.css'
 
 const SinglePostMain = () => {
   const {currentUser} = useContext(AuthContext)
   const {darkTheme} = useContext(ThemeContext)
   const { postID } = useParams()
 
-
-  let reqPost
   let posts = []
 
   const [title, setTitle] = useState('')
@@ -54,11 +54,11 @@ const SinglePostMain = () => {
 
 
   return (
-    <section className={`post ${darkTheme ? "" : "light"}`}>
-      <div className="post__container">
+    <section className={`single-post ${darkTheme ? "" : "light"}`}>
+      <div className="post__container single-post__container">
 
-        <div className="post__container__post-user-details">
-          <div className="post__container__post-user-details__avatar">
+        <div className="single-post__container__post-user-details">
+          <div className="single-post__container__post-user-details__avatar">
             {imageURL ? (
               <img src={imageURL} alt="user"/>
             ) : (
@@ -66,38 +66,43 @@ const SinglePostMain = () => {
             )}
           </div>
         
-          <div className="post__container__post-user-details__col">
+          <div className="single-post__container__post-user-details__col">
 
-            <div className="post__container__post-user-details__col__platform">
+            <div className="single-post__container__post-user-details__col__platform">
               <Link to={`/platform/${subPlatform}`}>
                 <h5>TDP/{subPlatform}</h5>
               </Link>
             </div>
 
-            <div className="post__container__post-user-details__col__username">
+            <div className="single-post__container__post-user-details__col__username">
               <h6>By u/{displayName}</h6>
             </div>
 
           </div>
         </div>
 
-        <div className="post__container__post-details">
+        <div className="single-post__container__post-details">
 
-          <div className="post__container__post-details__heading">
-              <h1 className="post__container__post-details__heading-heading">
+          <div className="single-post__container__post-details__heading">
+              <h1 className="single-post__container__post-details__heading-heading">
                 {title}
               </h1>
           </div>
 
-          <div className="post__container__post-details__para">
-            <p className="post__container__post-details__para-para">
+          <div className="single-post__container__post-details__para">
+            <p className="single-post__container__post-details__para-para">
               {para}
             </p>
           </div>
 
         </div>
 
+        <SinglePostInput
+          postID={postID}
+          userName={displayName}
+        />
 
+        <SinglePostComments postID={postID}/>
       </div>
     </section>
   )

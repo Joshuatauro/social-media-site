@@ -25,19 +25,22 @@ const CreatePost = () => {
         res => {
 
           res.docs.map((doc) => {
-            if(doc.id == currentUser.uid){
-              setDisplayName(doc.data().displayName)
-              return true
+            if(doc.id === currentUser.uid){
+              console.log("FOUND",doc.data().displayName)
+              // setDisplayName(doc.data().displayName)
+              addPost(doc.data().displayName)
+              
             }
           })
         }
-      )).then(() => addPost())
+      ))
   }
 
-  const addPost = () => {
+  const addPost = (userName) => {
+    console.log(userName, "you got the fucking username bitch then fucking show it ")
     db.collection('posts').add(
       {
-        displayName,
+        displayName: userName,
         title,
         para: text,
         subPlatform: platform
@@ -46,6 +49,7 @@ const CreatePost = () => {
       console.log(docRef.id)
       history.push(`/post/${docRef.id}`)
     })
+    console.log("POSTED")
   }
 
   

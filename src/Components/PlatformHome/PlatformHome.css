@@ -1,0 +1,12 @@
+.platform-home {
+  color: white;
+  font-family: "Jetbrains Mono";
+  padding: 20px 0 40px;
+}
+
+.platform-home span {
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 15px;
+}
