@@ -1,0 +1,49 @@
+@import '../config';
+
+.user-settings{
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  background-color: $darkThemeBackground;
+
+  &__container{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    &__posts{
+      width: 70%;
+
+      &-post{
+        margin: 20px 0;
+      }
+    }
+
+    &__profile{
+      margin: 20px 0 0;
+
+      
+    }
+
+    &__empty{
+      font-family: $fontMain;
+      color: $darkThemeText;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: calc(100vh - 140px);
+
+      & span{
+        background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}

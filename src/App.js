@@ -7,7 +7,8 @@ import Login from "./Components/LogInComponent/Login"
 import CreatePost from './Components/CreatePostComponent/CreatePost';
 import SinglePost from './Components/SinglePost/SinglePost';
 import PlatformHome from './Components/PlatformHome/PlatformHome';
-import UserSettings from './Components/UserSettingsComponent/UserSettings';
+import UserProfile from './Components/UserSettingsComponent/UserProfile';
+import UserSetting from './Components/UserSettingPage/UserSetting';
 
 function App() {
   return (
@@ -36,7 +37,11 @@ function App() {
           </Route>
 
           <Route path="/dev/:userName">
-            <UserSettings />
+            <UserProfile />
+          </Route>
+
+          <Route path="/settings">
+            <UserSetting />
           </Route>
 
           <Route exact path="/">

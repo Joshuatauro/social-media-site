@@ -1,23 +1,27 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { auth, db } from '../Firebase/firebase'
-
+import {useHistory} from 'react-router-dom'
 export const AuthContext = createContext()
 
 
 export const AuthProvider = ({children}) => {
+  const history = useHistory()
 
   const [currentUser, setCurrentUser] = useState('')
 
   const signUp = async(email,password,displayName) => {
     await auth.createUserWithEmailAndPassword(email,password)
     .then(cred => {
-      console.log(cred)
+      // console.log(cred)
       db.collection('users').doc(cred.user.uid).set({
         displayName: displayName
         
       })
     })
-    .catch(err => console.error(err))
+    .then(() => {
+      history.push("/")
+    })
+    .catch(err => alert(err.message))
   }
 
   const logIn = async(email,password) => {

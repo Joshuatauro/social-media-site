@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../Firebase/firebase'
+import {useParams} from 'react-router-dom'
 
 import './UserProfileAside.css'
 
-const UserProfileAside = ({userName}) => {
+const UserProfileAside = () => {
+  const {userName} = useParams()
   const [bio,setBio] = useState('')
   const [imgURL,setImgURL] = useState('')
   let userDetails

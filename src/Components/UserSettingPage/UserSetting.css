@@ -1,0 +1,32 @@
+.user-settings-page {
+  background: #151618;
+  color: #ffffff;
+  font-family: "Jetbrains Mono";
+  width: 100%;
+  min-height: 100vh;
+}
+
+.user-settings-page__container {
+  width: 90%;
+  margin: auto;
+  background-color: #242629;
+}
+
+.user-settings-page__container__btn {
+  margin: 0px 20px;
+  padding: 10px 0 50px;
+}
+
+.user-settings-page__container__btn h2 {
+  font-size: 15px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0 0 15px;
+}
+
+.user-settings-page__container__btn__logout {
+  width: 120px;
+  height: 35px;
+  font-family: "Jetbrains Mono";
+  cursor: pointer;
+}

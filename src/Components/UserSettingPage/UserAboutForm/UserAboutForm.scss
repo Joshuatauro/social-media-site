@@ -1,0 +1,77 @@
+@import '../../config';
+
+.user-settings-page__container__form{
+  // background-color: $darkTheme;
+
+
+  padding: 20px 30px 50px 20px;
+
+  &__image img{
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+  }
+
+      
+
+  &__bio{
+    position: relative;
+
+    margin: 35px 0 0;
+
+    & textarea{
+      width: 300px;
+      height: 150px;
+
+      padding: 5px;
+
+      background-color: transparent;
+      color: $darkThemeText;
+
+      resize: none;
+
+      border: 1px solid white;
+
+      &:focus ~ label,
+      &:valid ~ label{
+        top: -20px;
+      }
+    }
+  }
+
+  &__userName{
+    display: flex;
+
+    margin: 10px 0;
+
+    &-userName{
+      color: $darkThemeTextFade;
+
+      margin:  0 15px 0 0;
+    }
+  }
+
+  &__label{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+
+    font-size: 13px;
+
+    transition: 0.5s ease-in-out;
+  }
+
+  &__btn{
+    margin: 10px 0;
+
+    width: 120px;
+    height: 35px;
+
+    background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+    color: white;
+
+    font-family: $fontMain;
+  }
+}

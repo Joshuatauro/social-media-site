@@ -1,0 +1,42 @@
+@import '../config';
+
+.user-settings-page{
+  background: $darkThemeBackground;
+  color: $darkThemeText;
+
+  font-family: $fontMain;
+
+  width: 100%;
+  min-height: 100vh;
+
+
+  &__container{
+    width: 90%;
+    margin: auto;
+
+    background-color: $darkTheme;
+
+    &__btn{
+      margin: 0px 20px;
+
+      padding: 10px 0 50px;
+
+      & h2{
+        font-size: $fontSizeSmall;
+        font-weight: $fontWeightLight;
+        color: $darkThemeText;
+
+        margin: 0 0 15px;
+      }
+
+      &__logout{
+        width: 120px;
+        height: 35px;
+
+        font-family: $fontMain;
+
+        cursor: pointer;
+      }
+    }
+  }
+}

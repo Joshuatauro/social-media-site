@@ -26,7 +26,7 @@ const Login = () => {
           </div>
 
           <div className="sign-up__container__form__input">
-            <input type="text" required value={password} onChange={ (e) => setPassword(e.target.value) }/>
+            <input type="password" required value={password} onChange={ (e) => setPassword(e.target.value) }/>
             <label className="sign-up__container__form__input-label">Password</label>
           </div>
 

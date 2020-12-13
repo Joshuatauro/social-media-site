@@ -1,0 +1,41 @@
+.user-settings {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  background-color: #151618;
+}
+
+.user-settings__container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-settings__container__posts {
+  width: 70%;
+}
+
+.user-settings__container__posts-post {
+  margin: 20px 0;
+}
+
+.user-settings__container__profile {
+  margin: 20px 0 0;
+}
+
+.user-settings__container__empty {
+  font-family: "Jetbrains Mono";
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 140px);
+}
+
+.user-settings__container__empty span {
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

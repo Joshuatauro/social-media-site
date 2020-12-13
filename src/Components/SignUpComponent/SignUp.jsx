@@ -1,11 +1,10 @@
 import React, { useState,useContext } from 'react'
-import { useHistory } from 'react-router-dom'
 import { ThemeContext } from '../Context/GeneralContext'
 import { AuthContext } from "../Context/AuthContext"
 import "./SignUp.css"
 
 const SignUp = () => {
-  const history = useHistory()
+
   const { darkTheme } = useContext(ThemeContext)
   const {signUp} = useContext(AuthContext)
 
@@ -19,11 +18,12 @@ const SignUp = () => {
 
     if (password === rePassword){
       signUp(email,password,displayName)
-        .then(history.push("/"))
-      setEmail('')
-      setPassword('')
-      setRePassword('')
-      setDisplayName('')
+        .then(() => {
+          setEmail('')
+          setPassword('')
+          setRePassword('')
+          setDisplayName('')
+        })
     } else {
       alert("Passwords do not match")
     }
@@ -39,13 +39,13 @@ const SignUp = () => {
           </div>
 
           <div className="sign-up__container__form__input">
-            <input type="text" required value={password} onChange={ (e) => setPassword(e.target.value) }/>
-            <label className="sign-up__container__form__input-label">Password</label>
+            <input type="password" required value={password} onChange={ (e) => setPassword(e.target.value) }/>
+            <label className="sign-up__container__form__input-label" minLength="6">Password</label>
           </div>
 
           <div className="sign-up__container__form__input">
-            <input type="text" required value={rePassword} onChange={ (e) => setRePassword(e.target.value) }/>
-            <label className="sign-up__container__form__input-label">Password</label>
+            <input type="password" required value={rePassword} onChange={ (e) => setRePassword(e.target.value) }/>
+            <label className="sign-up__container__form__input-label" minLength="6">Password</label>
           </div>
 
           <div className="sign-up__container__form__input">
