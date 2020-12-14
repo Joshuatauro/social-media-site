@@ -2,12 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import { db } from '../../Firebase/firebase'
+import firebase from 'firebase'
 import './Comment.css'
 
 //! This is component is responsible a single comment and also checks if the currentUser and the user who posted
 //! the comment is same or not and displays edit button as such
 
-const Comment = ({props,commentID}) => {
+const Comment = ({props,commentID,postID}) => {
   const {currentUser} = useContext(AuthContext)
   const {userName, text} = props
 
@@ -45,6 +46,22 @@ const Comment = ({props,commentID}) => {
     })
   }
 
+  const handleCommentDelete = () => {
+    if(window.confirm("Are you sure you want to delete this comment?")){
+
+      db.collection('comments').doc(commentID).delete()
+        .then(() => {
+          db.collection('posts').doc(postID).update(
+            {
+              commentCount: firebase.firestore.FieldValue.increment(-1)
+            }
+          )
+        })
+    } else {
+      setIsEditing(false)
+    }
+  }
+
   
   return (
     <section className="comment">
@@ -60,8 +77,9 @@ const Comment = ({props,commentID}) => {
               <form className="comment__container__edit" onSubmit={handleCommentSubmit}>
                 <textarea type="text" className="comment__container__edit__input" value={commentTitle} onChange={e => setCommentTitle(e.target.value)} required/> 
                 <div className="comment__container__edit__row">
-                  <button className="comment__container__edit__row__btn cancel" onClick={toggleEdit}>Cancel</button>
                   <button className="comment__container__edit__row__btn submit" type="submit" onClick={handleCommentSubmit}>Submit</button>
+                  <button className="comment__container__edit__row__btn cancel" onClick={toggleEdit}>Cancel</button>
+                  <button className="comment__container__edit__row__btn delete" onClick={handleCommentDelete}>Delete</button>
                 </div>
               </form>
             ) : (

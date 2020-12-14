@@ -52,6 +52,7 @@
           height: 40px;
 
           font-family: $fontMain;
+          color: white;
 
           cursor: pointer;
           &.cancel{
@@ -60,12 +61,16 @@
 
             border: 1px solid white;
 
-            margin:  0 15px 0 0;
+            margin:  0 15px  0;
+          }
+          
+          &.submit{
+            background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
           }
 
-          &.submit{
-            color: white;
-            background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+          &.delete{
+            background: linear-gradient(to right, #f00000, #dc281e);
+            
           }
         }
 

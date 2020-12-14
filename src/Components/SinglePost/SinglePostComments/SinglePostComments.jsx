@@ -29,6 +29,7 @@ const SinglePostComments = ({postID}) => {
             <Comment 
               props={comment.data()}
               commentID = {comment.id}
+              postID = {postID}
             />
           )
         })}
