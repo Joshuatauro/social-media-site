@@ -10,9 +10,15 @@
 .home__container {
   width: 90%;
   margin: auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 50px;
 }
 
 .home-post {
-  width: 70%;
   padding: 20px 0;
+}
+
+.home-post:first-child {
+  padding: 0 0 20px;
 }

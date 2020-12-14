@@ -23,7 +23,7 @@ const SinglePostInput = ({postID, userName}) => {
     db.collection('comments').add(
       {
         parentID: postID,
-        userName,
+        userName: currentUser.displayName,
         text
       }
     ).then(() => {

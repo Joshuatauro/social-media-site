@@ -2,9 +2,10 @@ import React, { useState,useContext } from 'react'
 import { ThemeContext } from '../Context/GeneralContext'
 import { AuthContext } from "../Context/AuthContext"
 import "./SignUp.css"
+import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {
-
+  const history = useHistory()
   const { darkTheme } = useContext(ThemeContext)
   const {signUp} = useContext(AuthContext)
 
@@ -17,13 +18,15 @@ const SignUp = () => {
     e.preventDefault()
 
     if (password === rePassword){
-      signUp(email,password,displayName)
+      signUp(email,password,displayName.toLowerCase())
         .then(() => {
+          // history.push(`/`)
           setEmail('')
           setPassword('')
           setRePassword('')
           setDisplayName('')
         })
+
     } else {
       alert("Passwords do not match")
     }

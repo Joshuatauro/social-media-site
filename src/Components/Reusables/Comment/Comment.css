@@ -5,6 +5,17 @@
   margin: 15px 0 30px;
 }
 
+.comment__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.comment__container__col__first {
+  flex: 0.9;
+}
+
 .comment__container-userName h4 {
   font-size: 11px;
   color: #ffffff;
@@ -13,6 +24,48 @@
 .comment__container-comment p {
   color: #e7e7e7;
   font-size: 15px;
+}
+
+.comment__container__edit__input {
+  width: 100%;
+  height: 100px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid white;
+  padding: 5px;
+  margin: 10px 0;
+  resize: none;
+}
+
+.comment__container__edit__row {
+  display: flex;
+}
+
+.comment__container__edit__row__btn {
+  width: 90px;
+  height: 40px;
+  font-family: "Jetbrains Mono";
+  cursor: pointer;
+}
+
+.comment__container__edit__row__btn.cancel {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  margin: 0 15px 0 0;
+}
+
+.comment__container__edit__row__btn.submit {
+  color: white;
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+}
+
+.comment__edit {
+  background: transparent;
+  color: #e7e7e7;
+  font-family: "Nunito";
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .comment::after {

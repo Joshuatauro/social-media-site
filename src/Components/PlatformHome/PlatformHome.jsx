@@ -9,10 +9,24 @@ const PlatformHome = () => {
   const {subPlatform} = useParams()
   const { darkTheme } = useContext(ThemeContext)
 
+  
+  const correctSubPlatform = () => {
+    const lengthOfPlatform = subPlatform.length
+    let correctPlatform = ''
+    for(let i=0;i<lengthOfPlatform;i++){
+      if(i === 0){
+        correctPlatform = correctPlatform+subPlatform[i].toUpperCase()
+      } else {
+        correctPlatform = correctPlatform+subPlatform[i].toLowerCase()
+      }
+    }
+    return correctPlatform
+  }
+
   const [postsArr, setPostsArr] = useState([])
 
   useEffect(() => {
-    db.collection('posts').where("subPlatform", "==" ,subPlatform).onSnapshot(snapshot => {
+    db.collection('posts').where("subPlatform", "==" ,correctSubPlatform()).onSnapshot(snapshot => {
       
       setPostsArr(snapshot.docs.map( 
         doc => 
@@ -28,12 +42,12 @@ const PlatformHome = () => {
   },[])
 
   return (
-    <section className={`home ${darkTheme ? "" : "light"}`}>
-      <div className="home__container">
+    <section className={`platform ${darkTheme ? "" : "light"}`}>
+      <div className="platform__container">
       <div className="platform-home">
         <h2>Welcome to 
           <span>
-            TDP/{subPlatform}
+            TDP/{correctSubPlatform()}
           </span>
         </h2>
       </div>

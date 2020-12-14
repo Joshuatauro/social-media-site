@@ -2,8 +2,9 @@ import React, { useState,useContext } from 'react'
 import { ThemeContext } from '../Context/GeneralContext'
 import { AuthContext } from "../Context/AuthContext"
 import "../SignUpComponent/SignUp.css"
-
+import { useHistory } from 'react-router-dom'
 const Login = () => {
+  const history = useHistory()
   const { darkTheme } = useContext(ThemeContext)
   const {logIn} = useContext(AuthContext)
 
@@ -14,6 +15,7 @@ const Login = () => {
     e.preventDefault()
 
     logIn(email,password)
+      .then(history.push("/"))
   }
 
   return (

@@ -10,45 +10,49 @@ import PlatformHome from './Components/PlatformHome/PlatformHome';
 import UserProfile from './Components/UserSettingsComponent/UserProfile';
 import UserSetting from './Components/UserSettingPage/UserSetting';
 
+
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
 
-          <Route exact path="/login">
-            <Login />
-          </Route>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
 
-          <Route path="/create-post">
-            <CreatePost />
-          </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
 
-          <Route path="/post/:postID">
-            <SinglePost />
-          </Route>
+            <Route path="/create-post">
+              <CreatePost />
+            </Route>
 
-          <Route path="/platform/:subPlatform">
-            <PlatformHome />
-          </Route>
+            <Route path="/post/:postID">
+              <SinglePost />
+            </Route>
 
-          <Route path="/dev/:userName">
-            <UserProfile />
-          </Route>
+            <Route path="/platform/:subPlatform">
+              <PlatformHome />
+            </Route>
 
-          <Route path="/settings">
-            <UserSetting />
-          </Route>
+            <Route path="/dev/:userName">
+              <UserProfile />
+            </Route>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/settings">
+              <UserSetting />
+            </Route>
+
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+
+      
     </div>
   );
 }

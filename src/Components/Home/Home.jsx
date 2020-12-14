@@ -4,6 +4,7 @@ import Post from '../Reusables/PostComponent/Post'
 import { db } from '../Firebase/firebase'
 import './Home.css'
 import LoadingIcon from '../Reusables/LoadingIcon/LoadingIcon'
+import HomeSideBar from './HomeSideBar/HomeSideBar'
 
 const Home = () => {
   const { darkTheme } = useContext(ThemeContext)
@@ -13,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
 
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy("timeStamp","desc").onSnapshot(snapshot => {
       setPostsArr(snapshot.docs.map( 
         doc => 
         (
@@ -38,14 +39,20 @@ const Home = () => {
           </div>
         ) : (
           <div className="home__container">
-            {postsArr.map((props) => {
-              const ID = props.id
-              return(
-                <div className="home-post">
-                  <Post key={ID} props={props}/>
-                </div>
-              )
-            })}
+            <div className="home__container__posts">
+              {postsArr.map((props) => {
+                const ID = props.id
+                return(
+                  <div className="home-post">
+                    <Post key={ID} props={props}/>
+                  </div>
+                )
+              })}
+            </div>
+            
+            <div className="home-sidebar">
+              <HomeSideBar />
+            </div>
           </div>
         )}
     </section>

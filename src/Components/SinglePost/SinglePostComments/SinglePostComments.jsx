@@ -4,6 +4,9 @@ import { db } from "../../Firebase/firebase"
 
 import './SinglePostComments.css'
 
+
+//* THIS COMPONENT IS RESPONSIBLE FOR GETTING THE POSTID AND GETTING ALL THE POSTS AND THEN MAPPING THROUGH
+
 const SinglePostComments = ({postID}) => {
   const [comments, setComments] = useState([])
 
@@ -25,6 +28,7 @@ const SinglePostComments = ({postID}) => {
           
             <Comment 
               props={comment.data()}
+              commentID = {comment.id}
             />
           )
         })}
@@ -34,3 +38,4 @@ const SinglePostComments = ({postID}) => {
 }
 
 export default SinglePostComments
+

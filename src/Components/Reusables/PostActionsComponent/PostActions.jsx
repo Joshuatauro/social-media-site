@@ -7,15 +7,9 @@ const PostActions = ({comments}) => {
   const { darkTheme } = useContext(ThemeContext)
 
   const [upvotes, setUpvotes] = useState(1000)
-  const [downvotes, setDownvotes] = useState(-1)
-  // const [comments, setComments] = useState(10)
 
   const upvote = () => {
     setUpvotes(upvotes+1)
-  }
-
-  const downvote = () => {
-    setDownvotes(downvotes-1)
   }
 
 

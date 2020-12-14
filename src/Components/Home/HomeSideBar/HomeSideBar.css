@@ -1,0 +1,37 @@
+.home-sidebar {
+  background-color: #242629;
+  font-family: "Jetbrains Mono";
+  padding: 20px 0;
+}
+
+.home-sidebar__header h2 {
+  color: #ffffff;
+  font-size: 15px;
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.home-sidebar__links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home-sidebar__links-item {
+  margin: 20px 0 15px;
+}
+
+.home-sidebar__links-item-link {
+  color: #ffffff;
+  transition: 0.5s ease-in-out;
+}
+
+.home-sidebar__links-item-link:hover {
+  background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

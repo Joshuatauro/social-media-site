@@ -12,20 +12,22 @@ export const AuthProvider = ({children}) => {
   const signUp = async(email,password,displayName) => {
     await auth.createUserWithEmailAndPassword(email,password)
     .then(cred => {
-      // console.log(cred)
+      //NOT REQUIRED BUT ITS BETTER THAN MAKING EACH COMMENT MAKE A QUERY TO CHECK IF PERSON BROWSING IS THE SAME PERSON WHO COMMENTED SO AS TO WETHER OR NOT ALLOW TO EDIT
+      cred.user.updateProfile({
+        displayName
+      })
       db.collection('users').doc(cred.user.uid).set({
         displayName: displayName
         
       })
-    })
-    .then(() => {
-      history.push("/")
+
     })
     .catch(err => alert(err.message))
   }
 
   const logIn = async(email,password) => {
     await auth.signInWithEmailAndPassword(email,password)
+    
     .catch(err => alert(err.message))
   }
 

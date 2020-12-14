@@ -1,10 +1,18 @@
-.platform-home {
+.platform {
+  width: 100%;
+  background-color: #151618;
   color: white;
   font-family: "Jetbrains Mono";
+  min-height: calc(100vh - 80px);
+}
+
+.platform__container {
+  width: 90%;
+  margin: auto;
   padding: 20px 0 40px;
 }
 
-.platform-home span {
+.platform span {
   background: -webkit-linear-gradient(45deg, #18e976, #2a3bd8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
