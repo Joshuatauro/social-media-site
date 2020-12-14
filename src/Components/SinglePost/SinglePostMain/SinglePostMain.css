@@ -59,3 +59,18 @@
   font-weight: 300;
   font-size: 15px;
 }
+
+.single-post__container__edit {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.single-post__container__edit__btn {
+  width: fit-content;
+  background: transparent;
+  color: white;
+  font-family: "Nunito";
+  margin: 0 15px 0 0;
+  cursor: pointer;
+}
