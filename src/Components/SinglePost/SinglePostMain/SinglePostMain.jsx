@@ -31,6 +31,7 @@ const SinglePostMain = () => {
 
   const [loading, isLoading] = useState(true)
 
+  //* Is called as soon as the page loads => to fetch data
   const fetchData = () => {
     
     db.collection('posts').get()
@@ -40,12 +41,13 @@ const SinglePostMain = () => {
           if(doc.id === postID){
             posts.push(doc.data())
 
-
+            console.log(posts[0])
 
             setPara(posts[0].para)
             setTitle(posts[0].title)
             setDisplayName(posts[0].displayName)
             setSubPlatform(posts[0].subPlatform)
+            setImageURL(posts[0].profilePicture)
             isLoading(false)
           }
         })
@@ -100,7 +102,7 @@ const SinglePostMain = () => {
     } else {
       setIsEditing(false)
     }
-   
+  
   }
 
   // FOR GETTING THE DETAILS OF THE POST

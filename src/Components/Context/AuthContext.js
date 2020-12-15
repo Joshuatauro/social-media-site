@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { auth, db } from '../Firebase/firebase'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 export const AuthContext = createContext()
 
 
 export const AuthProvider = ({children}) => {
-  const history = useHistory()
+  // const history = useHistory()
 
   const [currentUser, setCurrentUser] = useState('')
 
@@ -17,8 +17,8 @@ export const AuthProvider = ({children}) => {
         displayName
       })
       db.collection('users').doc(cred.user.uid).set({
-        displayName: displayName
-        
+        displayName: displayName,
+        profileImage: "https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png"
       })
 
     })

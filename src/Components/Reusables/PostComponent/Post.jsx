@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../Context/GeneralContext'
+import { db } from '../../Firebase/firebase'
 import PostActions from '../PostActionsComponent/PostActions'
 
 import './Post.css'
@@ -8,8 +9,17 @@ import './Post.css'
 const Post = ({props}) => {
   const { darkTheme } = useContext(ThemeContext)
   
-  const { displayName,title,para,imageURL, subPlatform, commentCount} = props.post
+  const { displayName,title,para, subPlatform, commentCount} = props.post
   const ID = props.id
+
+  const [profileImage, setProfileImage] = useState()
+
+  useEffect(() => {
+    db.collection('users').where("displayName", "==", displayName).onSnapshot(snapshot => {
+
+      setProfileImage(snapshot.docs[0].data().profileImage)
+    })
+  })
 
   return (
     <section className={`post ${darkTheme ? "" : "light"}`}>
@@ -17,8 +27,8 @@ const Post = ({props}) => {
 
         <div className="post__container__post-user-details">
           <div className="post__container__post-user-details__avatar">
-            {imageURL ? (
-              <img src={imageURL} alt="user"/>
+            {profileImage ? (
+              <img src={profileImage} alt="user"/>
             ) : (
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrDJ5-IKojn4Rn2dlrRjCzDUjJ8G-TYuh0Aw&usqp=CAU" alt="user" />
             )}

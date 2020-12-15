@@ -11,7 +11,7 @@ import './Comment.css'
 const Comment = ({props,commentID,postID}) => {
   const {currentUser} = useContext(AuthContext)
   const {userName, text} = props
-
+  
   const [commentTitle, setCommentTitle] = useState(text)
 
   // * State for whether or not the user is editing data at the moment
@@ -30,8 +30,8 @@ const Comment = ({props,commentID,postID}) => {
   }
 
   const toggleEdit = () => {
-    setIsEditing(!isEditing)
-    
+    // setIsEditing(!isEditing)
+    console.log(commentTitle)
   }
 
   const handleCommentSubmit = e => {
@@ -57,10 +57,13 @@ const Comment = ({props,commentID,postID}) => {
             }
           )
         })
+        setIsEditing(false)
     } else {
       setIsEditing(false)
     }
   }
+
+  // const useEffect
 
   
   return (

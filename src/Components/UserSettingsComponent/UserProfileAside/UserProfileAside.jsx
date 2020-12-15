@@ -13,8 +13,10 @@ const UserProfileAside = () => {
   useEffect(() => {
     db.collection('users').where("displayName", "==", userName).onSnapshot(snapshot => {
       snapshot.docs.map((doc) => {
-        userDetails = doc.data()
+        let userDetails = doc.data()
+
         setBio(userDetails.bio)
+        setImgURL(userDetails.profileImage)
       })
     })
       
@@ -23,7 +25,7 @@ const UserProfileAside = () => {
   return (
     <aside className="user-profile-aside">
       <div className="user-profile-aside__container">
-        <img src="https://reactjs.org/logo-og.png" alt=""/>  
+        <img src={imgURL} alt=""/>  
         <div className="user-profile-aside__container__name">
           <h4>TDPu/{userName}</h4>
         </div>

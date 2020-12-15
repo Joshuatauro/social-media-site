@@ -13,7 +13,6 @@ const CreatePost = () => {
 
   const [title, setTitle] = useState('')
   const [text,setText] = useState('')
-  const [displayName, setDisplayName] = useState('')
   const [platform, setPlatform] = useState('All')
 
   const [loading, isLoading] = useState(false)
@@ -29,11 +28,10 @@ const CreatePost = () => {
       db.collection('users').get()
         .then((
           res => {
-  
             res.docs.map((doc) => {
               if(doc.id === currentUser.uid){
                 
-                addPost(doc.data().displayName)
+                getProfileImg(doc.data().displayName)
                 
               }
             })
@@ -44,20 +42,34 @@ const CreatePost = () => {
     }
   }
 
-  const addPost = (userName) => {
+  const getProfileImg = (userName) => {
+    db.collection('users').where("displayName", "==", currentUser.displayName).onSnapshot((snapshot) => {
+
+      //*Gets the profile url and puts it in a variable because useState dosen't work
+      const profileURL = snapshot.docs[0].data().profileImage
+      addPost(userName, profileURL )
+    })
+  }
+
+  const addPost = (userName, profileURL) => {
     isLoading(true)
+    
+
     db.collection('posts').add(
       {
+        profilePicture: profileURL,
         displayName: userName,
         title,
         para: text,
         subPlatform: platform,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp()
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+        
       }
     ).then(docRef => {
-      console.log(docRef.id)
+      console.log("redirecting now")
       history.push(`/post/${docRef.id}`)
     })
+
     
   }
 

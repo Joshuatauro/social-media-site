@@ -2,7 +2,7 @@ import React,{ useEffect, useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import LoadingIcon from '../../Reusables/LoadingIcon/LoadingIcon'
-import { db } from '../../Firebase/firebase'
+import { db, storage } from '../../Firebase/firebase'
 
 import './UserAboutForm.css'
 
@@ -13,7 +13,9 @@ const UserAboutForm = () => {
 
   const [bio, setBio] = useState('')
   const [userName, setUserName] = useState('')
-  const [imgURL, setImgURL] = useState()
+  const [profileImage, setProfileImage] = useState(null)
+  const [imgURL, setImgURL] = useState(null)
+  const [progress, setProgress] = useState(0)
   const [loading, isLoading] = useState(true)
 
   const handleSubmit = e => {
@@ -29,6 +31,41 @@ const UserAboutForm = () => {
     }
 
   }
+  
+  const handlePhotoSelect = (e) => {
+    if(e.target.files[0]){
+      setProfileImage(e.target.files[0])
+    }
+  }
+
+  const handlePhotoUpload = e => {
+    e.preventDefault()
+    const uploadIMG = storage.ref(`images/${profileImage.name}`).put(profileImage)
+
+    uploadIMG.on(
+      "state_changed",
+      (snapshot) => {
+        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setProgress(progress)
+        console.log(progress)
+      },
+      (error) => {
+        alert(error.message)
+      },
+      () => {
+        uploadIMG.snapshot.ref.getDownloadURL()
+          .then(downloadURL => {
+            console.log(downloadURL)
+            setImgURL(downloadURL)
+            db.collection('users').doc(currentUser.uid).update(
+              {
+                profileImage: downloadURL
+              }
+            )
+          })
+      }
+    )
+  }
 
   useEffect(() => {
     if(currentUser){
@@ -36,6 +73,7 @@ const UserAboutForm = () => {
         const userData = snapshot.data()
         setBio(userData.bio)
         setUserName(userData.displayName)
+        setImgURL(userData.profileImage)
         isLoading(false)
       })
         
@@ -48,9 +86,9 @@ const UserAboutForm = () => {
       ) : (
         <>
           <div className="user-settings-page__container__form__image">
-            <img src={
-              imgURL ? imgURL : "https://reactjs.org/logo-og.png"
-            } alt="User Profile"/>
+            <img src={imgURL} alt="User Profile"/>
+            <input type="file" onChange={handlePhotoSelect} />
+            <button className="user-settings-page__container__form__image__btn" onClick={handlePhotoUpload}>Submit</button>
           </div>
           <div className="user-settings-page__container__form__userName">
             <h5 className="user-settings-page__container__form__userName-userName">UserName: </h5>
