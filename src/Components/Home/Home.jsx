@@ -13,8 +13,8 @@ const Home = () => {
   const [loading, isLoading] = useState(true)
 
   useEffect(() => {
-
-    db.collection('posts').orderBy("timeStamp","desc").onSnapshot(snapshot => {
+    console.log(postsArr.length)
+    db.collection('posts').orderBy("timeStamp","desc").limit(6).onSnapshot(snapshot => {
       setPostsArr(snapshot.docs.map( 
         doc => 
         (

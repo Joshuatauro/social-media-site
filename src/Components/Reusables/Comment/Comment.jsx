@@ -30,8 +30,8 @@ const Comment = ({props,commentID,postID}) => {
   }
 
   const toggleEdit = () => {
-    // setIsEditing(!isEditing)
-    console.log(commentTitle)
+    setIsEditing(!isEditing)
+    // console.log(commentTitle)
   }
 
   const handleCommentSubmit = e => {

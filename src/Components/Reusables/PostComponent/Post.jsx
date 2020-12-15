@@ -9,7 +9,7 @@ import './Post.css'
 const Post = ({props}) => {
   const { darkTheme } = useContext(ThemeContext)
   
-  const { displayName,title,para, subPlatform, commentCount} = props.post
+  const { displayName,title,para, subPlatform, commentCount,likedBy} = props.post
   const ID = props.id
 
   const [profileImage, setProfileImage] = useState()
@@ -63,13 +63,17 @@ const Post = ({props}) => {
 
           <div className="post__container__post-details__para">
             <p className="post__container__post-details__para-para">
-              {para}
+              {
+                para
+                
+              }
             </p>
           </div>
 
         </div>
         <PostActions 
           comments = {commentCount ? commentCount : 0}
+          likedBy = {likedBy}
         />
 
       </div>

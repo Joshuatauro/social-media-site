@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react'
 import { ThemeContext } from '../../Context/GeneralContext'
+import { AuthContext } from '../../Context/AuthContext'
 
 import './PostActions.css'
 
-const PostActions = ({comments}) => {
+const PostActions = ({comments,likedBy}) => {
   const { darkTheme } = useContext(ThemeContext)
+  const {currentUser} = useContext(AuthContext)
 
-  const [upvotes, setUpvotes] = useState(1000)
+  const [isLiked, setIsLiked] = useState(likedBy.includes(currentUser.displayName))
 
-  const upvote = () => {
-    setUpvotes(upvotes+1)
-  }
+  const [likesNum, setLikesNum] = useState(likedBy.length)
 
 
   return (
@@ -18,9 +18,11 @@ const PostActions = ({comments}) => {
       <div className="post-actions__container">
         <div className="post-actions__container-col">
 
-          <button className="post-actions__container-col__vote" onClick={upvote}>
-            <i className="fas fa-heart" />
-            {upvotes}
+          <button className="post-actions__container-col__vote " >
+
+            <img src={`./${isLiked}.svg`} alt="" width="20px"/>
+            {likesNum}
+            
           </button>
 
         </div>

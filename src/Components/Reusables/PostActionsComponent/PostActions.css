@@ -2,7 +2,7 @@
   width: 100%;
   background-color: #242629;
   color: #ffffff;
-  margin: 5px 0 10px;
+  margin: 5px 0 5px;
   transition: 0.5s ease-in-out;
   box-shadow: -2px -8px 15px 3px #242629;
   position: relative;
@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 }
 
 .post-actions__container-col {
@@ -30,7 +31,7 @@
 }
 
 .post-actions__container-col__vote {
-  background-color: #151618;
+  background-color: transparent;
   color: #e7e7e7;
   padding: 5px 15px;
   margin: 0 5px 0 0;
@@ -41,6 +42,10 @@
 
 .post-actions__container-col__vote i {
   margin: 0 5px 0 0;
+}
+
+.post-actions__container-col__vote i.--active {
+  color: red;
 }
 
 .post-actions__container-col__comments h4 {

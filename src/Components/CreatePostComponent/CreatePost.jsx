@@ -51,6 +51,12 @@ const CreatePost = () => {
     })
   }
 
+  const checkEnter = (e) => {
+    if(e.keyCode === 13){
+      setText(text,'<br />')
+    }
+  }
+
   const addPost = (userName, profileURL) => {
     isLoading(true)
     
@@ -83,7 +89,7 @@ const CreatePost = () => {
             <label className="create-post__container__form__input__label title">Title</label>
           </div>
           <div className="create-post__container__form__input">
-            <textarea type="text" required onChange={e => setText(e.target.value)} value={text} />
+            <textarea type="text" required onChange={e => setText(e.target.value)} value={text} onKeyPress={checkEnter}/>
             <label className="create-post__container__form__input__label text">Text</label>
           </div>
 

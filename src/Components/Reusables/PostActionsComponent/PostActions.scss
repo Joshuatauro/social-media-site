@@ -5,7 +5,7 @@
 
   background-color: $darkTheme;
   color: $darkThemeText;
-  margin: 5px 0 10px;
+  margin: 5px 0 5px;
 
   transition: 0.5s ease-in-out;
 
@@ -28,12 +28,14 @@
     justify-content: space-between;
     align-items: center;
 
+    padding: 10px 0;
+
     &-col{
       display: flex;
       align-items: center;
 
       &__vote{
-        background-color: $darkThemeBackground;
+        background-color:transparent;
         color: $darkThemeTextFade;
 
         padding: 5px 15px;
@@ -46,7 +48,11 @@
 
         & i{
           margin: 0 5px 0 0;
+          &.--active{
+            color: red;
+          }
         }
+
       }
 
       &__comments h4{
@@ -57,3 +63,5 @@
     }
   }
 }
+
+

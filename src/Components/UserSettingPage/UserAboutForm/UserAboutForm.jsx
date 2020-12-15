@@ -88,7 +88,7 @@ const UserAboutForm = () => {
           <div className="user-settings-page__container__form__image">
             <img src={imgURL} alt="User Profile"/>
             <input type="file" onChange={handlePhotoSelect} />
-            <button className="user-settings-page__container__form__image__btn" onClick={handlePhotoUpload}>Submit</button>
+            <button className="user-settings-page__container__form__image__btn" onClick={handlePhotoUpload}>Change</button>
           </div>
           <div className="user-settings-page__container__form__userName">
             <h5 className="user-settings-page__container__form__userName-userName">UserName: </h5>
