@@ -91,7 +91,6 @@ const SinglePostMain = () => {
         db.collection('comments').where("parentID", "==", postID).get()
           .then((res) => {
             res.docs.forEach((doc) => {
-              console.log(doc)
               db.collection('comments').doc(doc.id).delete()
             })
           })
